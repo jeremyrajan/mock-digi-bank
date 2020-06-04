@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./pages/Home";
+import { Header } from "semantic-ui-react";
 
 // services
-import { getAccounts } from './services/accountService';
+import { getAccounts } from "./services/accountService";
 
 function App() {
   const [accounts, setAccounts] = useState([]);
@@ -13,21 +13,21 @@ function App() {
   const fetchData = async () => {
     const data = await getAccounts();
     setAccounts(data);
-  }
+  };
 
   useEffect(() => {
     fetchData();
-  }, [])
+  }, []);
 
   return (
     <div className="App">
-      <Router>
-        <Switch>
-          <Route path="/" exact>
-            <Home accounts={accounts} />
-          </Route>
-        </Switch>
-      </Router>
+      <div className="topbar">
+        <img className="App-logo" src={logo} alt="mobile digi bank" />
+        <Header as="h1">Welcome to Mobile Digi Bank</Header>
+      </div>
+      <div className="container">
+        <Home accounts={accounts} />
+      </div>
     </div>
   );
 }

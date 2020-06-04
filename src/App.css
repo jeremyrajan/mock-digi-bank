@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  width: 4rem;
   pointer-events: none;
 }
 
@@ -35,4 +35,21 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.topbar {
+  justify-content: center;
+  display: flex;
+  padding: 1rem;
+  background: #333;
+}
+
+.topbar .header {
+  margin: 0;
+  color: #fff;
+}
+
+.container {
+  padding: 1rem
 }
