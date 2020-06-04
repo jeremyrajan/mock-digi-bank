@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import {Header, Modal, Segment } from "semantic-ui-react";
+import { Header, Modal, Segment, Icon } from "semantic-ui-react";
 import { getTransactionDetails } from "../../services/accountService";
-import stripSpecialChar from '../../helpers/stripSpecialChar';
-import './style.css';
+import stripSpecialChar from "../../helpers/stripSpecialChar";
+import "./style.css";
 
 const TransactionDetailsModal = ({ trigger, accountId, transactionId }) => {
   const [transactionDetails, setTransactionDetails] = useState({});
@@ -22,10 +22,22 @@ const TransactionDetailsModal = ({ trigger, accountId, transactionId }) => {
         <Modal.Description>
           <dl>
             {Object.keys(transactionDetails).map((trDetail) => {
+              console.log(transactionDetails[trDetail]);
               return (
                 <div className="transaction-detail-row">
-                  <Header className="transaction-detail-row-title" dividing size="small" as='dt'>{stripSpecialChar(trDetail)}</Header>
-                  <Segment.Inline as='dd'>{transactionDetails[trDetail] || '-'}</Segment.Inline>
+                  <Header
+                    className="transaction-detail-row-title"
+                    dividing
+                    size="small"
+                    as="dt"
+                  >
+                    {stripSpecialChar(trDetail)}
+                  </Header>
+                  <Segment.Inline as="dd">
+                    {typeof transactionDetails[trDetail] === "boolean"
+                      ? !!transactionDetails[trDetail] ? <Icon name="check circle" color="green" /> : <Icon name="times circle" color="red" />
+                      : transactionDetails[trDetail]}
+                  </Segment.Inline>
                 </div>
               );
             })}
