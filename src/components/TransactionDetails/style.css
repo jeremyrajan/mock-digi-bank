@@ -1,0 +1,7 @@
+.transaction-detail-row {
+  margin: 1rem 0;
+}
+
+.transaction-detail-row-title {
+  text-transform: capitalize !important;
+}

@@ -1,0 +1,24 @@
+.accordian-title {
+  text-align: left;
+}
+
+.accordian-title-details {
+  display: flex;
+}
+
+.accordian-title[data-active="true"] {
+  border-left: 5px solid green;
+}
+
+.accoridian-title-left,
+.accoridian-title-right {
+  width: 100%;
+}
+
+.accoridian-title-right {
+  text-align: right;
+}
+
+.accordian-content {
+  background-color: #ededed;
+}
