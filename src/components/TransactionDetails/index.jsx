@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {Header, Modal, Segment } from "semantic-ui-react";
 import { getTransactionDetails } from "../../services/accountService";
+import stripSpecialChar from '../../helpers/stripSpecialChar';
 import './style.css';
 
 const TransactionDetailsModal = ({ trigger, accountId, transactionId }) => {
@@ -23,7 +24,7 @@ const TransactionDetailsModal = ({ trigger, accountId, transactionId }) => {
             {Object.keys(transactionDetails).map((trDetail) => {
               return (
                 <div className="transaction-detail-row">
-                  <Header className="transaction-detail-row-title" dividing size="small" as='dt'>{trDetail}</Header>
+                  <Header className="transaction-detail-row-title" dividing size="small" as='dt'>{stripSpecialChar(trDetail)}</Header>
                   <Segment.Inline as='dd'>{transactionDetails[trDetail] || '-'}</Segment.Inline>
                 </div>
               );

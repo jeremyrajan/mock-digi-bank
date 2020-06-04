@@ -1,6 +1,7 @@
 import React from "react";
 import { Table, Button } from "semantic-ui-react";
 import TransactionDetailsModal from "../TransactionDetails";
+import stripSpecialChar from '../../helpers/stripSpecialChar';
 import "./style.css";
 
 const TransactionTable = ({ headers, rows }) => (
@@ -9,7 +10,7 @@ const TransactionTable = ({ headers, rows }) => (
       <Table.Row>
         {headers.map((header, ix) => (
           <Table.HeaderCell className="table-header-cell" key={ix}>
-            {header}
+            {stripSpecialChar(header)}
           </Table.HeaderCell>
         ))}
         <Table.HeaderCell key={-1}>Details</Table.HeaderCell>
