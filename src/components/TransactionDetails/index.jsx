@@ -16,7 +16,7 @@ const TransactionDetailsModal = ({ trigger, accountId, transactionId }) => {
   };
 
   return (
-    <Modal trigger={trigger} onOpen={fetchTransactionDetails}>
+    <Modal closeIcon trigger={trigger} onOpen={fetchTransactionDetails}>
       <Modal.Header>Transaction #{transactionId}</Modal.Header>
       <Modal.Content>
         <Modal.Description>
